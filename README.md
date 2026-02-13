@@ -34,6 +34,18 @@ Evaluation uses:
 
 ---
 
+## Data Characteristics
+
+- Datasets contained complete hourly observations with no missing timestamps
+
+- No anomalous or negative load values were observed
+
+- No preprocessing, smoothing, or interpolation was required
+
+- Forecasting was performed directly on raw load values
+
+---
+
 ## Metrics
 
 - MAE
