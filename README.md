@@ -2,12 +2,14 @@
 
 ## Overview
 
-This project implements a leak-free prototype for 24-hour ahead electricity load forecasting using a Large Language Model (LLM). Performance is evaluated using rolling-origin backtesting and compared against a strong seasonal-naive baseline.
+This project implements a disciplined prototype for 24-hour ahead electricity load forecasting using a Large Language Model (LLM).
+Performance is evaluated using rolling-origin backtesting and compared against a strong seasonal-naive baseline.
+
+The goal is not to maximize accuracy via prompt tuning, but to evaluate whether a structured LLM approach can match a strong statistical baseline under strict evaluation discipline.
 
 The emphasis is on:
 
 - Methodological correctness
-- No data leakage
 - Deterministic feature construction
 - Clean evaluation logic
 - Reproducibility
@@ -87,7 +89,7 @@ At each forecast origin, the LLM receives structured inputs computed strictly fr
 
 - 168 hourly observations provided chronologically
 
-All context is recomputed independently at each origin to prevent leakage.
+All context is recomputed independently at each origin using only information available at the forecast time.
 
 The LLM is instructed to output exactly 24 non-negative numeric forecasts in strict JSON format.
 
@@ -95,7 +97,7 @@ No external signals such as weather or news are used.
 
 ---
 
-## Leakage Prevention
+## Backtesting Discipline
 
 For each origin time T:
 
@@ -104,7 +106,6 @@ For each origin time T:
 - Forecasts are evaluated only against unseen future observations
 - Rolling windows are recomputed per origin
 
-This ensures proper backtesting discipline.
 
 ---
 
