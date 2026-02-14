@@ -25,15 +25,6 @@ For selected forecast origin timestamps, the task is to predict the next 24 hour
 
 ---
 
-## Evaluation
-
-Evaluation uses:
-
-- 14 daily rolling origins per utility
-- 24-hour forecast horizon
-- 336 hourly predictions per utility
-
----
 
 ## Data Characteristics
 
@@ -44,6 +35,16 @@ Evaluation uses:
 - No preprocessing, smoothing, or interpolation was required
 
 - Forecasting was performed directly on raw load values
+  
+---
+
+## Evaluation
+
+Evaluation uses:
+
+- 14 daily rolling origins per utility
+- 24-hour forecast horizon
+- 336 hourly predictions per utility
 
 ---
 
@@ -89,6 +90,8 @@ At each forecast origin, the LLM receives structured inputs computed strictly fr
 - 168 hourly observations provided chronologically
 
 All context is recomputed independently at each origin using only information available at the forecast time.
+
+These are provided to the LLM as structured prompt context for forecasting.
 
 The LLM is instructed to output exactly 24 non-negative numeric forecasts in strict JSON format.
 
