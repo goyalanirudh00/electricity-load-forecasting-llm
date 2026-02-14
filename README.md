@@ -2,8 +2,7 @@
 
 ## Overview
 
-This project implements a disciplined prototype for 24-hour ahead electricity load forecasting using a Large Language Model (LLM).
-Performance is evaluated using rolling-origin backtesting and compared against a strong seasonal-naive baseline.
+This project implements a 24-hour ahead electricity load forecasting system using a Large Language Model (LLM), evaluated via rolling-origin backtesting against a strong seasonal-naive baseline.
 
 The goal is not to maximize accuracy via prompt tuning, but to evaluate whether a structured LLM approach can match a strong statistical baseline under strict evaluation discipline.
 
